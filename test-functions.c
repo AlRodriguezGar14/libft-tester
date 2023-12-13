@@ -296,6 +296,18 @@ void	test_strim(char const *s1, char const *set)
 	printf("\n\n");
 }
 
+void	test_split(char const *s, char c)
+{
+	char	**out = ft_split(s, c);
+	char	separator[2] = {c};
+
+	print_input_str(s);
+	print_str_definition("separator", separator);
+	while (*out)
+		print_output_str(*out++);
+	printf("\n\n");
+}
+
 
 #define MAX_STRING_SIZE 256
 
@@ -423,5 +435,11 @@ int main()
 	test_strim("      Yay!!    ", " ");
 	test_strim("__alcachofa__", "_");
 	test_strim("-+-cc+/c/+-*cosillas+++/--c/+c", "+-/c");
+
+
+	print_test_title("Testing split()");
+	test_split("a,b,c,d,e", ',');
+	test_split("some words with space", ' ');
+	test_split("reject_snake_case_embrace_camelCase", '_');
     return 0;
 }
