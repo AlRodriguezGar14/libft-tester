@@ -255,6 +255,23 @@ void test_calloc(char *title)
         free(test_b);
     }
 }
+
+void	test_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*out;
+	
+	out = ft_substr(s, start, len);
+	print_input_str(s);
+	/* printf("The output from %u to %ld is...\n", start, len); */
+	print_nbr_values("The start index is", start);
+	print_nbr_values("Number of elements to copy", len);
+	print_nbr_values("The original len is", ft_strlen(s));
+	print_output_str(out);
+	print_nbr_values("The output str len is", ft_strlen(out));
+	printf("\n\n");
+}
+
+
 #define MAX_STRING_SIZE 256
 
 int main()
@@ -359,6 +376,15 @@ int main()
     
     // Speficic memory allocations
     test_calloc("Testing calloc()");
+
+	// Non-system functions
+	print_test_title("Testing substr()");
+	test_substr("Hello World but so long", 5, 99999);
+	test_substr("Hello World but so long", 5, 10);
+	test_substr("Hello World but so long", 5, 1);
+	test_substr("Hello World but so long", 5, 2);
+	test_substr("Hello World but so long", 0, 12);
+	test_substr("Hello World but so long", 6, 0);
 
     return 0;
 }

@@ -8,6 +8,23 @@
 #define COLOR_YELLOW  "\x1b[38;5;178m"
 #define COLOR_CYAN "\x1b[36m"
 
+void	print_input_str(char *str)
+{
+	printf("Original str: ");
+	printf(COLOR_YELLOW"%s\n"COLOR_RESET, str);
+}
+
+void	print_output_str(char *str)
+{
+	printf("Output str: ");
+	printf(COLOR_CYAN"%s\n"COLOR_RESET, str);
+}
+
+void	print_nbr_values(char *def, void *value)
+{
+	printf("%s: ", def);
+	printf(COLOR_RED"%ld\n"COLOR_RESET, (size_t)value);
+}
 
 void print_pass_str(char *original, char *copy)
 {
