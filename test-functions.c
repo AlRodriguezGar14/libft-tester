@@ -308,6 +308,13 @@ void	test_split(char const *s, char c)
 	printf("\n\n");
 }
 
+void	test_itoa(int n)
+{
+	char	*nbr = ft_itoa(n);
+
+	print_nbr_values("Input number is", n);
+	print_str_definition("Output string", nbr);
+}
 
 #define MAX_STRING_SIZE 256
 
@@ -441,5 +448,10 @@ int main()
 	test_split("a,b,c,d,e", ',');
 	test_split("some words with space", ' ');
 	test_split("reject_snake_case_embrace_camelCase", '_');
+
+	print_test_title("Testing itoa()");
+	test_itoa(-2147483648);
+	test_itoa(0);
+	test_itoa(42);
     return 0;
 }
