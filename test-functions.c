@@ -271,6 +271,31 @@ void	test_substr(char const *s, unsigned int start, size_t len)
 	printf("\n\n");
 }
 
+void	test_strjoin(char const *s1, char const *s2)
+{
+	char	*out;
+	
+	out = ft_strjoin(s1, s2);
+	print_input_str(s1);
+	print_input_str(s2);
+	print_output_str(out);
+	print_nbr_values("The s1 len is", ft_strlen(s1));
+	print_nbr_values("The s2 len is", ft_strlen(s2));
+	print_nbr_values("The output str len is", ft_strlen(out));
+	printf("\n\n");
+}
+
+void	test_strim(char const *s1, char const *set)
+{
+	char	*out;
+	
+	out = ft_strtrim(s1, set);
+	print_input_str(s1);
+	print_str_definition("set to trim", set);
+	print_output_str(out);
+	printf("\n\n");
+}
+
 
 #define MAX_STRING_SIZE 256
 
@@ -386,5 +411,17 @@ int main()
 	test_substr("Hello World but so long", 0, 12);
 	test_substr("Hello World but so long", 6, 0);
 
+	print_test_title("Testing strjoin()");
+	test_strjoin("Hello", " World");
+	test_strjoin("Chao", " World");
+	test_strjoin("Manu ", " Chao");
+	test_strjoin("", "Prev is empty");
+	test_strjoin("Next is empty", "");
+	test_strjoin("", "");
+
+	print_test_title("Testing strtrim()");
+	test_strim("      Yay!!    ", " ");
+	test_strim("__alcachofa__", "_");
+	test_strim("-+-cc+/c/+-*cosillas+++/--c/+c", "+-/c");
     return 0;
 }

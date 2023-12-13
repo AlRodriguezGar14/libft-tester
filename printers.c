@@ -14,6 +14,12 @@ void	print_input_str(char *str)
 	printf(COLOR_YELLOW"%s\n"COLOR_RESET, str);
 }
 
+void	print_str_definition(char *def, char *str)
+{
+	printf("%s: ", def);
+	printf(COLOR_YELLOW"%s\n"COLOR_RESET, str);
+}
+
 void	print_output_str(char *str)
 {
 	printf("Output str: ");
